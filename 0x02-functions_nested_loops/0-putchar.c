@@ -1,17 +1,10 @@
 include < unistd.h >
-
-
 /**
- *
- *  * main- writes the character -putchar to stdout
- *
- *   * @-putchar: The character to print
- *
- *    *
- *
- *     * Return: alaways 0
- *
- *       */
+*  * main- writes the character -putchar to stdout
+*   * @-putchar: The character to print
+*     * Return: alaways 0
+*
+*       */
 
 int main(void)
 
