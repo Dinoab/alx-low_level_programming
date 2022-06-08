@@ -18,6 +18,6 @@ int main(void)
 	_putchar('a')
 	_putchar('r')
 
-	  return (write(1, &c, 1));
+	  return (0);
 
 }
