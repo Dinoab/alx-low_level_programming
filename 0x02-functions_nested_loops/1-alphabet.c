@@ -1,24 +1,24 @@
-include "main.h"
-
+#include "main.h"
 /**
- *
- *  * print_alphabet - prints alphabet in lowercase
- *
- *   * @void: no argument
- *
- *    **/
+ * *print_alphabet - prints alphabet in lowercase
+ *  *@void: no argument
+ *   **/
 
 void print_alphabet(void)
 
 {
 
-		char c;
+		int j;
 
 
+			for (j = 'a'; j <= 'z'; c++)
 
-			for (c = 'a'; c <= 'z'; c++)
+					{
 
-						_putchar(c);
+							_putchar(c);
+
+								}
+
 
 				_putchar('\n');
 
