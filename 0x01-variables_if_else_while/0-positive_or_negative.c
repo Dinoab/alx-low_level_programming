@@ -12,15 +12,12 @@
 * @void: no argument
 * Return: 0 (Sucess)
 **/
->>>>>>> 19dc1ed95d0fbe9d324791189ce2d1f478cae880
+
 int main(void)
 
 {
 	int n;
-<<<<<<< HEAD
-
-=======
->>>>>>> 19dc1ed95d0fbe9d324791189ce2d1f478cae880
+	
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 	
