@@ -3,7 +3,10 @@
 * print_alphabet_x10 - prints the alphabet in lowercase 10 times
 * @void - no argument
 */
+<<<<<<< HEAD
 
+=======
+>>>>>>> a833612c1c9f85e2eff1d3bbc640018cd7da755a
 void print_alphabet_x10(void)
 
 {
