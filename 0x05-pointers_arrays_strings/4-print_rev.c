@@ -11,8 +11,6 @@ void print_rev(char *str)
 		c++;
 	c--;
 	for (i = c; i >= 0; i--)
-	{
 		_putchar(str[i]);
-	}
 	_putchar('\n');
 }
