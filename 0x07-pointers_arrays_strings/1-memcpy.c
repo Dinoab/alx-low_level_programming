@@ -12,6 +12,6 @@ char _memcpy(void *dest, const void *src, size_t n)
 	unsigned int a;
 
 	for (a = 0; a < n; a++)
-		destination[a] = source[a];
+		dest[a] = src[a];
 	return (dest);
 }
