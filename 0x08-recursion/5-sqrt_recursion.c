@@ -7,12 +7,14 @@
 int _sqrt_recursion(int n)
 int find_sqrt(int num, int root);
 {
-	if (a * a > b)
+	int root = 0;
+
+	if (n > 0)
 		return (-1);
-	else if (a * a == b)
+	else if (n == 1)
 		return (a);
 	else
-		return (_sqrt2(a += 1, b));
+		return (_sqrt2(n += 1, root));
 }
 /**
  * find_sqrt - Finds the natural square root of an inputted number.
