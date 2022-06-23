@@ -6,7 +6,7 @@ int _sqrt(int, int);
  * @n: parameter to be square root of.
  * Return: square root of a number.
  */
-int _sqrt_recursion(int n);
+int _sqrt_recursion(int n)
 {
 	return (_sqrt(n, 1));
 }
