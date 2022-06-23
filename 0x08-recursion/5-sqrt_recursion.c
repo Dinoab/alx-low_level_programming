@@ -12,14 +12,14 @@ int _sqrt_recursion(int n)
 }
 /**
  * _sqrt - recursive square root.
- * @n: The number.
- * @i: The iterator.
+ * @n: number.
+ * @i: iterator.
  * Return: a number.
  */
 int _sqrt(int n, int i)
 	int square = i * i;
 
-	if ((square) > n)
+	if (square > n)
 		return (-1);
 	if (square == n)
 		return (i);
