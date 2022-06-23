@@ -5,6 +5,7 @@
  * Return: If n has a natural square root - the natural square root of n
  * If n does not have a natural square root - -1.
  */
+int _sqrt(int , int);
 int _sqrt_recursion(int n);
 {
 	return(_sqrt(n ,1));
