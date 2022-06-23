@@ -6,7 +6,6 @@
  * If n does not have a natural square root - -1.
  */
 int _sqrt_recursion(int n)
-int find_sqrt(int num, int root);
 {
 	int root = 0;
 
