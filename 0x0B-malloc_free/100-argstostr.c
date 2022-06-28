@@ -1,44 +1,35 @@
 #include "main.h"
 #include <stdlib.h>
 /**
- * argstostr - Concatenate arguments
- * @ac: number arguments
- * @av: vector arguments
- * Return: Returns NULL if ac == 0 or av == NULL
- * or NULL if failure, Returns a pointer to a new string
+ * argstostr - Concatenates all arguments of the program into a string;
+ * arguments are separated by a new line in the string.
+ * @ac: The number of arguments passed to the program.
+ * @av: An array of pointers to the arguments.
+ * Return: If ac == 0, av == NULL, or the function fails - NULL.
+ *  Otherwise - a pointer to the new string.
  */
 char *argstostr(int ac, char **av)
 {
-	int con1, con2;
-	int ini = 0, lon = 0;
-	char *strcon;
+	char *str;
+	int arg, byte, index, size = ac;
 
-	if (ac == 0 || av == 0)
+	if (ac == 0 || av == NULL)
 		return (NULL);
-	for (con1 = 0; con1 < ac; con1++)
-		lon += _strl(av[con1]);
-	strcon = malloc(sizeof(char) * (lon + ac + 1));
-	if (strcon == 0)
-		return (NULL);
-	for (con1 = 0; con1 < ac; con1++)
+	for (arg = 0; arg < ac; arg++)
 	{
-		for (con2 = 0; av[con1][con2] != '\0'; con2++)
-			strcon[ini++] = av[con1][con2];
-		strcon[ini++] = '\n';
+		for (byte = 0; av[arg][byte]; byte++)
+			size++;
 	}
-strcon[ini++] = '\0';
-return (strcon);
-}
-/**
- * _strl - Return the length of a string
- * @s: The string to check
- * Return: The length of the string
- */
-int _strl(char *s)
-{
-	int i;
-
-	for (i = 0; s[i] != '\0'; i++)
-		;
-	return (i);
+	str = malloc(sizeof(char) * size + 1);
+	if (str == NULL)
+		return (NULL);
+	index = 0;
+	for (arg = 0; arg < ac; arg++)
+	{
+		for (byte = 0; av[arg][byte]; byte++)
+			str[index++] = av[arg][byte];
+		str[index++] = '\n';
+	}
+	str[size] = '\0';
+	return (str);
 }
