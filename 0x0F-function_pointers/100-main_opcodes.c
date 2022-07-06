@@ -1,4 +1,3 @@
-100-main_opcodes.c
 #include <stdlib.h>
 /**
  * main - Prints the opcodes of itself.
