@@ -1,39 +1,37 @@
 #include "main.h"
-
 /**
- * read_textfile - Entry Point
- * @filename: file name
- * @letters: size
- * Return: 0
+ * read_textfile - reads a text file and prints it to the POSIX
+ * @filename: points to file that we will be receiving
+ * @letters: size of letters to read in
+ * Return: the readFile
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int file, rd, wr;
-	char *buf;
-
+	int f = 0, rf = 0, wf = 0, cf;
+	char *buffer;
+	/*
+	 *f: file
+	 *rf: read file
+	 *wf: write file
+	 *cf: close file
+	 */
+	buffer = malloc(sizeof(char) * letters);
+	if (buffer == NULL)
+		return (0);
 	if (filename == NULL)
 		return (0);
-
-	file = open(filename, O_RDONLY);
-
-	if (file == -1)
+	f = open(filename, O_RDONLY);
+	if (f == -1)
 		return (0);
-
-	buf = malloc(sizeof(char) * letters + 1);
-	if (buf == NULL)
+	rf = read(f, buffer, letters);
+	if (rf == -1)
 		return (0);
-
-	rd = read(file, buf, letters);
-	if (rd == -1)
+	wf = write(STDOUT_FILENO, buffer, rf);
+	if (wf == -1)
 		return (0);
-
-	buf[letters] = '\0';
-
-	wr = write(1, buf, rd);
-	if (wr == -1)
+	cf = close(f);
+	if (cf == -1)
 		return (0);
-
-	close(file);
-	free(buf);
-	return (wr);
-} 
+	free(buffer);
+	return (rf);
+}
