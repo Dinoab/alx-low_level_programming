@@ -1,5 +1,5 @@
 #include "main.h"
-
+void closer(int arg_files);
 /**
  * main - Copy the contents of a file to other file
  * @argc: num arg
