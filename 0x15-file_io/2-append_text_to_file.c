@@ -1,40 +1,29 @@
 #include "main.h"
-
 /**
- * append_text_to_file - Entry Point
- * @filename: file name
- * @text_content: text content
- * Return: 1
+ * append_text_to_file - appends a text at the end of a file
+ * @filename: points to file that we will be receiving
+ * @text_content: the text that is being written
+ * Return: 1 if success
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int file, wr, i = 0;
+	int f, wf, cf, len;
 
 	if (filename == NULL)
 		return (-1);
-
-	file = open(filename, O_RDWR | O_APPEND);
-	if (file == -1)
+	f = open(filename, O_APPEND | O_WRONLY);
+	if (f == -1)
 		return (-1);
-
-
-
-	while (text_content[i])
-		i++;
-
-	if (text_content == NULL)
+	if (text_content != NULL)
 	{
-		close(file);
-		return (1);
+		for (len = 0; text_content[len] != '\0'; len++)
+			;
+		wf = write(f, text_content, len);
 	}
-	else
-	{
-		wr = write(file, text_content, i);
-	}
-
-	if (wr == -1)
+	if (wf == -1)
 		return (-1);
-
-	close(file);
+	cf = close(f);
+	if (cf == -1)
+		return (-1);
 	return (1);
 }
