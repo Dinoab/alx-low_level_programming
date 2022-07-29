@@ -1,34 +1,34 @@
 #include "main.h"
 /**
- * create_file - Entry Point
- * @filename: file name
- * @text_content: null terminated string to write
- * Return: 1
+ * create_file - create a function that creates a file
+ * @filename: points to file that we will be receiving
+ * @text_content: the text that is being written
+ * Return: 1 if success
  */
 int create_file(const char *filename, char *text_content)
 {
-	int file, i = 0;
+	int f, wf, len, cf;
+	mode_t mode = S_IRUSR | S_IWUSR;
 
 	if (filename == NULL)
 		return (-1);
 
-	file = open(filename, O_CREAT | O_TRUNC | O_WRONLY, 0600);
-	if (file == -1)
+	f = open(filename, O_CREAT | O_WRONLY | O_TRUNC, mode);
+	if (f == -1)
 		return (-1);
 
-	while (text_content[i])
-		i++;
-
-	if (text_content == NULL)
+	if (text_content != NULL)
 	{
-		close(file);
+		for (len = 0; text_content[len] != '\0'; len++)
+			;
+		wf = write(f, text_content, len);
+	}
+	if (wf == -1)
+	{
 		return (-1);
 	}
-	else
-	{
-		write(file, text_content, i);
-	}
-
-	close(file);
+	cf = close(f);
+	if (cf == -1)
+		return (-1);
 	return (1);
 }
